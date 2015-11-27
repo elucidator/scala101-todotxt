@@ -1,6 +1,6 @@
-package cua.li.ti.todo
+package todo
 
-import org.parboiled2.{ CharPredicate, Parser, ParserInput }
+import org.parboiled2.{CharPredicate, Parser, ParserInput}
 
 /**
  * Parser for the todo.txt format

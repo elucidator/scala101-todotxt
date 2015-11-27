@@ -1,4 +1,4 @@
-package cua.li.ti.todo
+package todo
 
 case class Task(
     priority: Option[String] = None,

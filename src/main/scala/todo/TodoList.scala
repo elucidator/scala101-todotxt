@@ -1,8 +1,9 @@
-package cua.li.ti.todo
+package todo
+
+import org.parboiled2.{ErrorFormatter, ParseError}
 
 import scala.io.StdIn
-import scala.util.{ Failure, Success }
-import org.parboiled2.{ ErrorFormatter, ParseError }
+import scala.util.{Failure, Success}
 
 object TodoList extends App {
   val tasks = interpret(StdIn.readLine())
