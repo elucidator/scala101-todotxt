@@ -38,12 +38,17 @@ class TaskTest extends FlatSpec with Matchers {
     tasks.isSuccess should be(true)
     tasks.get.size should be(2)
     tasks.get.count(!_.created.isEmpty) should be(2)
+    tasks.get(0).created should be(Some("2011-03-02"))
+    tasks.get(0).created should be(Some("2011-03-02"))
+
   }
 
   it should "not set the created date when not a start or after priority followed by space" in {
     val tasks = mParse("(A) Call Mom 2011-03-02\n  x 2011-03-02 not with date")
     tasks.isSuccess should be(true)
     tasks.get.count(_.created.isEmpty) should be(2)
+    tasks.get(0).created should be(Some("2011-03-02"))
+    tasks.get(1).created should be(Some("2011-03-02"))
   }
 
   it should "parse contexts and projects correctly" in {
