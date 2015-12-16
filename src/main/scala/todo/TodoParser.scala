@@ -23,8 +23,8 @@ case class TodoParser(val input: ParserInput) extends Parser {
         t.copy(created = c)
     } ~ body ~ optional(EOL) }
   private def priority = rule { "(" ~ capture("A" - "Z") ~ ") " } // Rule 1
-  private def completed = rule { "x " ~ capture(date) } // Completed task
-  private def date = rule { digits(4) ~ "-" ~ digits(2) ~ "-" ~ digits(2) ~ " " } // Rule 2
+  private def completed = rule { "x " ~ capture(date) ~ " "} // Completed task
+  private def date = rule { digits(4) ~ "-" ~ digits(2) ~ "-" ~ digits(2) } // Rule 2
   private def digits(n: Int) = rule { n times CharPredicate.Digit }
   private def body = rule { oneOrMore(context | project | freedoc) } // Rule 3
   private def context = rule { " @" ~ capture(oneOrMore(noneOf(" \r\n"))) ~> {
