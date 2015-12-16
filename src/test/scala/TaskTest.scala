@@ -47,8 +47,6 @@ class TaskTest extends FlatSpec with Matchers {
     val tasks = mParse("(A) Call Mom 2011-03-02\n  x 2011-03-02 not with date")
     tasks.isSuccess should be(true)
     tasks.get.count(_.created.isEmpty) should be(2)
-    tasks.get(0).created should be(Some("2011-03-02"))
-    tasks.get(1).created should be(Some("2011-03-02"))
   }
 
   it should "parse contexts and projects correctly" in {
